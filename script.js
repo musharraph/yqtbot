@@ -30,7 +30,12 @@ document.getElementById("getSignal").addEventListener("click", function () {
     setTimeout(() => {
         let signal = Math.random() < 0.5 ? "BUY" : "SELL";
         signalOutput.innerHTML = signal;
+        signalOutput.className = signal === "BUY" ? "buy" : "sell";
         signalOutput.style.opacity = "1";
+
+        setTimeout(() => {
+            signalOutput.style.opacity = "0"; // Hide after 3 seconds
+        }, 3000);
 
         let selectedTime = parseInt(document.getElementById("timeSelect").value);
         let remainingTime = selectedTime;
