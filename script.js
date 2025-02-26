@@ -1,14 +1,21 @@
 document.getElementById("bgVideo").playbackRate = 0.5;
 
+// Password Validation
 document.getElementById("passwordBtn").addEventListener("click", function () {
     let password = document.getElementById("passwordInput").value;
+    let passwordScreen = document.getElementById("passwordScreen");
+    let container = document.querySelector(".container");
+    let errorMsg = document.getElementById("passwordError");
+
     if (password === "1234") {
-        document.getElementById("passwordScreen").style.display = "none";
+        passwordScreen.style.display = "none";
+        container.style.display = "block";
     } else {
-        alert("Incorrect password!");
+        errorMsg.textContent = "Incorrect password! Try again.";
     }
 });
 
+// Signal Button
 document.getElementById("getSignal").addEventListener("click", function () {
     let button = document.getElementById("getSignal");
     let timerDisplay = document.getElementById("timer");
