@@ -6,7 +6,7 @@
     <title>YQT BOT PRO</title>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
-        /* Smooth font and styling */
+        /* General Styling */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -22,7 +22,7 @@
             text-align: center;
         }
 
-        /* Video Background */
+        /* Background Video */
         #bgVideo {
             position: fixed;
             top: 0;
@@ -31,7 +31,7 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
-            filter: blur(5px); /* Slight blur for a stylish effect */
+            filter: blur(5px);
         }
 
         /* Header */
@@ -90,7 +90,7 @@
             font-size: 16px;
             border: none;
             border-radius: 5px;
-            background: linear-gradient(135deg, #4a4a6a, #30304a);
+            background: linear-gradient(135deg, #2a2a50, #1f1f3d);
             color: white;
             cursor: pointer;
             text-align: center;
@@ -98,12 +98,12 @@
         }
 
         .select-box:hover {
-            background: linear-gradient(135deg, #505080, #38385a);
+            background: linear-gradient(135deg, #353575, #292950);
         }
 
-        /* Button Animation */
+        /* Button Styling */
         .signal-btn {
-            background: linear-gradient(135deg, #ff4d4d, #ff1a1a);
+            background: linear-gradient(135deg, #b30000, #800000);
             color: white;
             padding: 12px;
             font-size: 16px;
@@ -116,8 +116,23 @@
         }
 
         .signal-btn:hover {
-            background: linear-gradient(135deg, #ff6666, #ff3333);
+            background: linear-gradient(135deg, #cc0000, #990000);
             transform: scale(1.05);
+        }
+
+        /* Disabled Button */
+        .disabled {
+            background: gray !important;
+            cursor: not-allowed !important;
+        }
+
+        /* Timer Styling */
+        #timer {
+            font-size: 16px;
+            margin-top: 10px;
+            font-weight: bold;
+            color: yellow;
+            opacity: 1;
         }
 
         /* Signal Output */
@@ -158,10 +173,10 @@
         <img src="IMG-20250226-WA0021.jpg" alt="Bot Logo" class="logo">
 
         <select id="platformSelect" class="select-box">
-            <option>Quotex</option>
-            <option>Binomo</option>
-            <option>Olymp Trade</option>
-            <option>Pocket Option</option>
+            <option value="Quotex">⚡ Quotex</option>
+            <option value="Binomo">📈 Binomo</option>
+            <option value="Olymp Trade">🏆 Olymp Trade</option>
+            <option value="Pocket Option">💰 Pocket Option</option>
         </select>
 
         <select id="currencySelect" class="select-box">
@@ -180,18 +195,42 @@
         </select>
 
         <button id="getSignal" class="signal-btn">Get Signal</button>
-
+        <p id="timer"></p>
         <p id="signalOutput"></p>
     </div>
 
     <script>
-        document.getElementById("getSignal").addEventListener("click", function () {
-            let outputElement = document.getElementById("signalOutput");
+        // Slow Down Video
+        document.getElementById("bgVideo").playbackRate = 0.5;
 
-            // Show "Searching..." effect
+        document.getElementById("getSignal").addEventListener("click", function () {
+            let button = document.getElementById("getSignal");
+            let outputElement = document.getElementById("signalOutput");
+            let timerElement = document.getElementById("timer");
+
+            // Disable button for 1 minute
+            button.classList.add("disabled");
+            button.disabled = true;
+
+            // Start countdown
+            let timeLeft = 60;
+            timerElement.textContent = `Wait ${timeLeft} seconds...`;
+            let countdown = setInterval(() => {
+                timeLeft--;
+                timerElement.textContent = `Wait ${timeLeft} seconds...`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdown);
+                    button.classList.remove("disabled");
+                    button.disabled = false;
+                    timerElement.textContent = "";
+                }
+            }, 1000);
+
+            // Show "Searching..."
             outputElement.textContent = "Searching...";
             outputElement.style.color = "yellow";
-            outputElement.style.opacity = "1"; // Make it visible
+            outputElement.style.opacity = "1";
 
             // After 3 seconds, show Buy/Sell signal
             setTimeout(() => {
