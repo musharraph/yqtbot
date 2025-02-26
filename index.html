@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #1e1e2e;
+            background: url('https://imagekit.io/tools/asset-public-link?detail=%7B%22name%22%3A%22maxim-hopman-fiXLQXAhCfk-unsplash.jpg%22%2C%22type%22%3A%22image%2Fjpeg%22%2C%22signedurl_expire%22%3A%222028-02-26T16%3A16%3A00.221Z%22%2C%22signedUrl%22%3A%22https%3A%2F%2Fmedia-hosting.imagekit.io%2F%2F3cff59800cb546ea%2Fmaxim-hopman-fiXLQXAhCfk-unsplash.jpg%3FExpires%3D1835194560%26Key-Pair-Id%3DK2ZIVPTIP2VGHC%26Signature%3DvGzeTwUSBszuAzrl4fQZiWFTOCzPB8PKOI4327G3avWWLf4joDrXY~KSJKt4Esf-yYz6fPWePXa6rzWpXE~8KSivfV~0lqEj1hT-NQrQcsQHcGITcZUQBm2vcbJh2CHF2~leIePPDTnmkKF4PzlEMAsIZMj~UiD7wwC843Nt6yEYay145wIu9HmqDO3dx8ZSY~ZvS19hWBe8NQ5Jr7VYODRvQZM~nz03KYq2Coxn2xiHhv4QpJG1inG9AxaSPthA~8SmDU23D-04JpvpGIf~AAwOuyOrRyN2sRYVyrd~Dei2OGeOT1G9DvO6tFQR14PY7oc2aG22J~1fj1G1gFJElw__%22%7D') no-repeat center center/cover;
             color: white;
             text-align: center;
             margin: 0;
@@ -20,14 +20,21 @@
             height: 100vh;
         }
         header {
-            background-color: #282845;
+            background-color: rgba(40, 40, 69, 0.8);
             width: 100%;
             padding: 15px 0;
             text-align: center;
         }
-        h1 {
+        h1, h2 {
             margin: 0;
+        }
+        h1 {
             font-size: 24px;
+        }
+        h2 {
+            font-size: 18px;
+            margin-top: 5px;
+            color: #ffcc00;
         }
         .container {
             display: flex;
@@ -36,6 +43,9 @@
             gap: 15px;
             width: 100%;
             max-width: 300px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
         }
         .logo {
             width: 150px;
@@ -77,10 +87,11 @@
 
     <header>
         <h1>YQT BOT PRO</h1>
+        <h2>100% ACCURATE SIGNAL'S</h2>
     </header>
 
     <div class="container">
-        <img src="https://media-hosting.imagekit.io//e37eb15341434a69/IMG-20250226-WA0021.jpg?Expires=1835182738&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=dj8AZ9flLgJ8IB3IMig8vRgwV8~vyBDqc2PaPHp8fNf21oosFUEfMn1DyIcqF4Lp39mjwXZrXuAqQyq2RZdLR~F6Cok81oKDF2QXFVGIPqFtCyzHV7yo42CRAj5b4kDdZvraszER5GOqCZsyD~YMts-FBXQ3zvt3gfMzIh8PA5LeVUjL7uXuET5TSx2P1WVVWNClItEm3Exjeu6sWnQCaFqYDlTzJqFvDaip3SqtKOJNMms4vwKIVtTMXf9cB0WiI7Xe3piVtCiTAUnmd8g9xzrozipA6EsCWJlx2EI9cgrqPohKv8vVnZzvU6ZjJLWJHeekGZwpqODcQQMHXxtT8Q__" alt="Bot Logo" class="logo">
+        <img src="https://imagekit.io/tools/asset-public-link?detail=%7B%22name%22%3A%22IMG-20250226-WA0021.jpg%22%2C%22type%22%3A%22image%2Fjpeg%22%2C%22signedurl_expire%22%3A%222028-02-26T12%3A58%3A58.266Z%22%2C%22signedUrl%22%3A%22https%3A%2F%2Fmedia-hosting.imagekit.io%2F%2Fe37eb15341434a69%2FIMG-20250226-WA0021.jpg%3FExpires%3D1835182738%26Key-Pair-Id%3DK2ZIVPTIP2VGHC%26Signature%3Ddj8AZ9flLgJ8IB3IMig8vRgwV8~vyBDqc2PaPHp8fNf21oosFUEfMn1DyIcqF4Lp39mjwXZrXuAqQyq2RZdLR~F6Cok81oKDF2QXFVGIPqFtCyzHV7yo42CRAj5b4kDdZvraszER5GOqCZsyD~YMts-FBXQ3zvt3gfMzIh8PA5LeVUjL7uXuET5TSx2P1WVVWNClItEm3Exjeu6sWnQCaFqYDlTzJqFvDaip3SqtKOJNMms4vwKIVtTMXf9cB0WiI7Xe3piVtCiTAUnmd8g9xzrozipA6EsCWJlx2EI9cgrqPohKv8vVnZzvU6ZjJLWJHeekGZwpqODcQQMHXxtT8Q__%22%7D" alt="Bot Logo" class="logo">
 
         <select id="platformSelect" class="select-box">
             <option>Quotex</option>
@@ -111,13 +122,19 @@
 
     <script>
         document.getElementById("getSignal").addEventListener("click", function () {
-            let signals = ["BUY", "SELL"];
-            let randomSignal = signals[Math.floor(Math.random() * signals.length)];
-
             let outputElement = document.getElementById("signalOutput");
-            outputElement.textContent = randomSignal;
 
-            outputElement.style.color = randomSignal === "BUY" ? "green" : "red";
+            // Show "Searching..."
+            outputElement.textContent = "Searching...";
+            outputElement.style.color = "yellow";
+
+            // After 3 seconds, show Buy/Sell signal
+            setTimeout(() => {
+                let signals = ["BUY", "SELL"];
+                let randomSignal = signals[Math.floor(Math.random() * signals.length)];
+                outputElement.textContent = randomSignal;
+                outputElement.style.color = randomSignal === "BUY" ? "green" : "red";
+            }, 3000);
         });
     </script>
 
