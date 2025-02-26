@@ -4,161 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YQT BOT PRO</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        /* General Styling */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-            color: white;
-            text-align: center;
-        }
-
-        /* Background Video */
-        #bgVideo {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            filter: blur(5px);
-        }
-
-        /* Header */
-        header {
-            background: rgba(50, 50, 80, 0.8);
-            width: 100%;
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        h1 {
-            font-size: 26px;
-            margin: 0;
-            color: #ffcc00;
-        }
-
-        h2 {
-            font-size: 18px;
-            margin-top: 5px;
-            color: #fff;
-            opacity: 0.9;
-            letter-spacing: 1px;
-        }
-
-        /* Main Container */
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            width: 90%;
-            max-width: 350px;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
-            animation: fadeInUp 1.5s ease-in-out;
-        }
-
-        .logo {
-            width: 120px;
-            margin-bottom: 10px;
-            transition: transform 0.5s;
-        }
-
-        .logo:hover {
-            transform: scale(1.1);
-        }
-
-        /* Dropdown Styling */
-        .select-box {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            background: linear-gradient(135deg, #2a2a50, #1f1f3d);
-            color: white;
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .select-box:hover {
-            background: linear-gradient(135deg, #353575, #292950);
-        }
-
-        /* Button Styling */
-        .signal-btn {
-            background: linear-gradient(135deg, #b30000, #800000);
-            color: white;
-            padding: 12px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            width: 100%;
-            margin-top: 10px;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .signal-btn:hover {
-            background: linear-gradient(135deg, #cc0000, #990000);
-            transform: scale(1.05);
-        }
-
-        /* Disabled Button */
-        .disabled {
-            background: gray !important;
-            cursor: not-allowed !important;
-        }
-
-        /* Timer Styling */
-        #timer {
-            font-size: 16px;
-            margin-top: 10px;
-            font-weight: bold;
-            color: yellow;
-            opacity: 1;
-        }
-
-        /* Signal Output */
-        #signalOutput {
-            font-size: 22px;
-            font-weight: bold;
-            margin-top: 15px;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Video Background -->
+    <!-- Password Screen -->
+    <div id="passwordScreen">
+        <input type="password" id="passwordInput" placeholder="Enter Password">
+        <button id="passwordBtn">Submit</button>
+    </div>
+
+    <!-- Background Video -->
     <video id="bgVideo" autoplay loop muted>
         <source src="007f7388d209fb089c60f03aebc95335.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -173,48 +30,64 @@
         <img src="IMG-20250226-WA0021.jpg" alt="Bot Logo" class="logo">
 
         <select id="platformSelect" class="select-box">
-            <option value="Quotex">⚡ Quotex</option>
-            <option value="Binomo">📈 Binomo</option>
-            <option value="Olymp Trade">🏆 Olymp Trade</option>
-            <option value="Pocket Option">💰 Pocket Option</option>
+            <option>IQ Option</option>
+            <option>Olymp Trade</option>
+            <option>Binomo</option>
+            <option>Quotex</option>
+            <option>ExpertOption</option>
+            <option>Pocket Option</option>
+            <option>(link unavailable)</option>
+            <option>Ayrex</option>
+            <option>HighLow</option>
+            <option>OptionField</option>
+            <option>CryptoBo</option>
+            <option>BinaryCent</option>
+            <option>Finmax</option>
+            <option>EToro</option>
+            <option>AvaTrade</option>
+            <option>MarketsWorld</option>
+            <option>Nadex</option>
+            <option>BinaryMate</option>
+            <option>FMTrader</option>
+            <option>RaceOption</option>
         </select>
 
         <select id="currencySelect" class="select-box">
             <option>USD/MXN (OTC)</option>
-<option>AUD/NZD (OTC)</option>
-<option>USD/NGN (OTC)</option>
-<option>USD/PHP (OTC)</option>
-<option>EUR/SGD (OTC)</option>
-<option>USD/BRL (OTC)</option>
-<option>NZD/CHF (OTC)</option>
-<option>USD/TRY (OTC)</option>
-<option>USD/PKR (OTC)</option>
-<option>USD/COP (OTC)</option>
-<option>UKBrent (OTC)</option>
-<option>USCrude (OTC)</option>
-<option>NZD/CAD (OTC)</option>
-<option>USD/DZD (OTC)</option>
-<option>USD/EGP (OTC)</option>
-<option>USD/INR (OTC)</option>
-<option>GBP/NZD (OTC)</option>
-<option>USD/BDT (OTC)</option>
-<option>NZD/USD (OTC)</option>
-<option>Pfizer Inc (OTC)</option>
-<option>Intel (OTC)</option>
-<option>Boeing Company (OTC)</option>
-<option>FACEBOOK INC (OTC)</option>
-<option>Johnson & Johnson (OTC)</option>
-<option>McDonald's (OTC)</option>
-<option>Microsoft (OTC)</option>
-<option>American Express (OTC)</option>
+            <option>AUD/NZD (OTC)</option>
+            <option>USD/NGN (OTC)</option>
+            <option>USD/PHP (OTC)</option>
+            <option>EUR/SGD (OTC)</option>
+            <option>USD/BRL (OTC)</option>
+            <option>NZD/CHF (OTC)</option>
+            <option>USD/TRY (OTC)</option>
+            <option>USD/PKR (OTC)</option>
+            <option>USD/COP (OTC)</option>
+            <option>UKBrent (OTC)</option>
+            <option>USCrude (OTC)</option>
+            <option>NZD/CAD (OTC)</option>
+            <option>USD/DZD (OTC)</option>
+            <option>USD/EGP (OTC)</option>
+            <option>USD/INR (OTC)</option>
+            <option>GBP/NZD (OTC)</option>
+            <option>USD/BDT (OTC)</option>
+            <option>NZD/USD (OTC)</option>
+            <option>Pfizer Inc (OTC)</option>
+            <option>Intel (OTC)</option>
+            <option>Boeing Company (OTC)</option>
+            <option>FACEBOOK INC (OTC)</option>
+            <option>Johnson & Johnson (OTC)</option>
+            <option>McDonald's (OTC)</option>
+            <option>Microsoft (OTC)</option>
+            <option>American Express (OTC)</option>
         </select>
 
         <select id="timeSelect" class="select-box">
-            <option>10 sec</option>
-            <option>15 sec</option>
-            <option>30 sec</option>
-            <option>1 min</option>
-            <option>5 min</option>
+            <option value="10">10 sec</option>
+            <option value="15">15 sec</option>
+            <option value="30">30 sec</option>
+            <option value="60">1 min</option>
+            <option value="300">5 min</option>
         </select>
 
         <button id="getSignal" class="signal-btn">Get Signal</button>
@@ -222,48 +95,6 @@
         <p id="signalOutput"></p>
     </div>
 
-    <script>
-        // Slow Down Video
-        document.getElementById("bgVideo").playbackRate = 0.5;
-
-        document.getElementById("getSignal").addEventListener("click", function () {
-            let button = document.getElementById("getSignal");
-            let outputElement = document.getElementById("signalOutput");
-            let timerElement = document.getElementById("timer");
-
-            // Disable button for 1 minute
-            button.classList.add("disabled");
-            button.disabled = true;
-
-            // Start countdown
-            let timeLeft = 60;
-            timerElement.textContent = `Wait ${timeLeft} seconds...`;
-            let countdown = setInterval(() => {
-                timeLeft--;
-                timerElement.textContent = `Wait ${timeLeft} seconds...`;
-
-                if (timeLeft <= 0) {
-                    clearInterval(countdown);
-                    button.classList.remove("disabled");
-                    button.disabled = false;
-                    timerElement.textContent = "";
-                }
-            }, 1000);
-
-            // Show "Searching..."
-            outputElement.textContent = "Searching...";
-            outputElement.style.color = "yellow";
-            outputElement.style.opacity = "1";
-
-            // After 3 seconds, show Buy/Sell signal
-            setTimeout(() => {
-                let signals = ["BUY", "SELL"];
-                let randomSignal = signals[Math.floor(Math.random() * signals.length)];
-                outputElement.textContent = randomSignal;
-                outputElement.style.color = randomSignal === "BUY" ? "green" : "red";
-            }, 3000);
-        });
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
