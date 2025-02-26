@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YQT BOT PRO</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2e;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        header {
+            background-color: #282845;
+            width: 100%;
+            padding: 15px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            max-width: 300px;
+        }
+        .logo {
+            width: 150px;
+            margin-bottom: 10px;
+        }
+        .select-box {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4a4a6a;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+        }
+        .signal-btn {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .signal-btn:hover {
+            background-color: #ff1a1a;
+        }
+        #signalOutput {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>YQT BOT PRO</h1>
+    </header>
+
+    <div class="container">
+        <img src="https://media-hosting.imagekit.io//e37eb15341434a69/IMG-20250226-WA0021.jpg?Expires=1835182738&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=dj8AZ9flLgJ8IB3IMig8vRgwV8~vyBDqc2PaPHp8fNf21oosFUEfMn1DyIcqF4Lp39mjwXZrXuAqQyq2RZdLR~F6Cok81oKDF2QXFVGIPqFtCyzHV7yo42CRAj5b4kDdZvraszER5GOqCZsyD~YMts-FBXQ3zvt3gfMzIh8PA5LeVUjL7uXuET5TSx2P1WVVWNClItEm3Exjeu6sWnQCaFqYDlTzJqFvDaip3SqtKOJNMms4vwKIVtTMXf9cB0WiI7Xe3piVtCiTAUnmd8g9xzrozipA6EsCWJlx2EI9cgrqPohKv8vVnZzvU6ZjJLWJHeekGZwpqODcQQMHXxtT8Q__" alt="Bot Logo" class="logo">
+
+        <select id="platformSelect" class="select-box">
+            <option>Quotex</option>
+            <option>Binomo</option>
+            <option>Olymp Trade</option>
+            <option>Pocket Option</option>
+        </select>
+
+        <select id="currencySelect" class="select-box">
+            <option>USD/BRL (OTC)</option>
+            <option>EUR/USD</option>
+            <option>GBP/JPY</option>
+            <option>BTC/USD</option>
+        </select>
+
+        <select id="timeSelect" class="select-box">
+            <option>10 sec</option>
+            <option>15 sec</option>
+            <option>30 sec</option>
+            <option>1 min</option>
+            <option>5 min</option>
+        </select>
+
+        <button id="getSignal" class="signal-btn">Get Signal</button>
+
+        <p id="signalOutput"></p>
+    </div>
+
+    <script>
+        document.getElementById("getSignal").addEventListener("click", function () {
+            let signals = ["BUY", "SELL"];
+            let randomSignal = signals[Math.floor(Math.random() * signals.length)];
+
+            let outputElement = document.getElementById("signalOutput");
+            outputElement.textContent = randomSignal;
+
+            outputElement.style.color = randomSignal === "BUY" ? "green" : "red";
+        });
+    </script>
+
+</body>
+</html>
