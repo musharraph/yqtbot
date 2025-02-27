@@ -188,7 +188,7 @@ body {
 /* Dropdown Container */
 .custom-dropdown {
     position: relative;
-    width: 250px; /* Ensures all dropdowns match */
+    width: 300px;
     text-align: left;
 }
 
@@ -209,15 +209,9 @@ body {
 
 /* Dropdown Button Image */
 .dropdown-btn img {
-    width: 20px;
+    width: 20px;  /* Ensures image does not take too much space */
     height: 20px;
     margin-right: 10px;
-}
-
-/* Dropdown Arrow */
-.arrow {
-    font-size: 14px;
-    margin-left: auto;
 }
 
 /* Dropdown List */
@@ -241,13 +235,20 @@ body {
     padding: 10px;
     cursor: pointer;
     font-size: 14px;
+    color: black; /* Ensure text is visible */
 }
 
 /* Dropdown Item Images */
 .dropdown-item img {
-    width: 20px;
+    width: 20px;  /* Ensures proper alignment */
     height: 20px;
     margin-right: 10px;
+}
+
+/* Ensure Text is Visible */
+.dropdown-item span {
+    flex-grow: 1; 
+    font-size: 14px;
 }
 
 /* Hover Effect */
@@ -258,4 +259,4 @@ body {
 /* Show Dropdown */
 .show {
     display: block;
-}
+        }
