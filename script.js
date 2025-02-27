@@ -53,19 +53,22 @@ document.getElementById("getSignal").addEventListener("click", function () {
         }, 1000);
     }, delay);
 });
+// Toggle Dropdown
 document.getElementById("platformBtn").addEventListener("click", function (event) {
-    event.stopPropagation(); // Prevents the event from closing the dropdown immediately
-    document.getElementById("platformList").classList.toggle("show");
+    event.stopPropagation(); // Prevents the event from closing immediately
+    let dropdown = document.getElementById("platformList");
+    dropdown.classList.toggle("show");
 });
 
 // Close dropdown when clicking outside
 document.addEventListener("click", function (event) {
+    let dropdown = document.getElementById("platformList");
     if (!document.querySelector(".custom-dropdown").contains(event.target)) {
-        document.getElementById("platformList").classList.remove("show");
+        dropdown.classList.remove("show");
     }
 });
 
-// Handle selection
+// Handle Selection
 document.querySelectorAll(".dropdown-item").forEach(item => {
     item.addEventListener("click", function () {
         let selectedText = this.textContent.trim();
@@ -79,7 +82,7 @@ document.querySelectorAll(".dropdown-item").forEach(item => {
     });
 });
 
-// Set default selected value as "Quotex"
+// Set Default Value (Quotex)
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("platformIcon").src = "qu.png";
     document.getElementById("platformText").textContent = "QUOTEX";
