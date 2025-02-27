@@ -188,22 +188,23 @@ body {
 /* Dropdown Container */
 .custom-dropdown {
     position: relative;
-    width: 220px; /* Consistent width */
+    width: 230px; /* Matches other dropdowns */
     text-align: left;
 }
 
 /* Dropdown Button */
 .dropdown-btn {
     width: 100%;
-    padding: 10px;
-    background: #222;
-    color: white;
-    border: 1px solid #444;
+    padding: 12px;
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 14px;
+    border-radius: 5px;
 }
 
 /* Dropdown Button Image */
@@ -211,6 +212,12 @@ body {
     width: 20px;
     height: 20px;
     margin-right: 10px;
+}
+
+/* Dropdown Arrow */
+.arrow {
+    font-size: 14px;
+    margin-left: auto;
 }
 
 /* Dropdown List */
@@ -224,6 +231,7 @@ body {
     z-index: 10;
     max-height: 200px;
     overflow-y: auto;
+    border: 1px solid #ccc;
 }
 
 /* Dropdown Items */
@@ -244,7 +252,7 @@ body {
 
 /* Hover Effect */
 .dropdown-item:hover {
-    background: #ddd;
+    background: #f1f1f1;
 }
 
 /* Show Dropdown */
