@@ -188,7 +188,7 @@ body {
 /* Dropdown Container */
 .custom-dropdown {
     position: relative;
-    width: 230px; /* Matches other dropdowns */
+    width: 250px; /* Ensures all dropdowns match */
     text-align: left;
 }
 
