@@ -64,3 +64,26 @@ document.querySelectorAll(".dropdown-item").forEach(item => {
         document.getElementById("platformList").classList.remove("show");
     });
 });
+document.getElementById("platformBtn").addEventListener("click", function () {
+    document.getElementById("platformList").classList.toggle("show");
+});
+
+document.querySelectorAll(".dropdown-item").forEach(item => {
+    item.addEventListener("click", function () {
+        let selectedText = this.textContent.trim();
+        let selectedImg = this.getAttribute("data-img");
+
+        document.getElementById("platformIcon").src = selectedImg;
+        document.getElementById("platformText").textContent = selectedText;
+        document.getElementById("platformSelect").value = this.getAttribute("data-value");
+
+        document.getElementById("platformList").classList.remove("show");
+    });
+});
+
+// Set default selected value as "Quotex"
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("platformIcon").src = "qu.png";
+    document.getElementById("platformText").textContent = "QUOTEX";
+    document.getElementById("platformSelect").value = "quotex";
+});
