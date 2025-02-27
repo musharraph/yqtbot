@@ -139,3 +139,49 @@ body {
         font-size: 14px;
     }
 }
+.custom-dropdown {
+    position: relative;
+    width: 200px;
+    text-align: left;
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.dropdown-item:hover {
+    background: #ddd;
+}
+
+.show {
+    display: block;
+}
