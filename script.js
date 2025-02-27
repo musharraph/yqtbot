@@ -53,21 +53,19 @@ document.getElementById("getSignal").addEventListener("click", function () {
         }, 1000);
     }, delay);
 });
-document.getElementById("platformBtn").addEventListener("click", function () {
+document.getElementById("platformBtn").addEventListener("click", function (event) {
+    event.stopPropagation(); // Prevents the event from closing the dropdown immediately
     document.getElementById("platformList").classList.toggle("show");
 });
 
-document.querySelectorAll(".dropdown-item").forEach(item => {
-    item.addEventListener("click", function () {
-        document.getElementById("platformBtn").innerHTML = this.innerHTML;
-        document.getElementById("platformSelect").value = this.getAttribute("data-value");
+// Close dropdown when clicking outside
+document.addEventListener("click", function (event) {
+    if (!document.querySelector(".custom-dropdown").contains(event.target)) {
         document.getElementById("platformList").classList.remove("show");
-    });
-});
-document.getElementById("platformBtn").addEventListener("click", function () {
-    document.getElementById("platformList").classList.toggle("show");
+    }
 });
 
+// Handle selection
 document.querySelectorAll(".dropdown-item").forEach(item => {
     item.addEventListener("click", function () {
         let selectedText = this.textContent.trim();
