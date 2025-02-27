@@ -53,3 +53,14 @@ document.getElementById("getSignal").addEventListener("click", function () {
         }, 1000);
     }, delay);
 });
+document.getElementById("platformBtn").addEventListener("click", function () {
+    document.getElementById("platformList").classList.toggle("show");
+});
+
+document.querySelectorAll(".dropdown-item").forEach(item => {
+    item.addEventListener("click", function () {
+        document.getElementById("platformBtn").innerHTML = this.innerHTML;
+        document.getElementById("platformSelect").value = this.getAttribute("data-value");
+        document.getElementById("platformList").classList.remove("show");
+    });
+});
